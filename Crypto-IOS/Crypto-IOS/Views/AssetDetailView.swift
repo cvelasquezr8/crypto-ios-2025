@@ -1,7 +1,6 @@
 import SwiftUI
 
-
-    struct AssetDetailView: View {
+struct AssetDetailView: View {
     
     @State var viewModel: AssetDetailsViewModel
     
@@ -9,7 +8,10 @@ import SwiftUI
         VStack {
             Text(viewModel.asset.name)
             Button {
-                viewModel.addToFavourites()
+                Task {
+                    await viewModel.addToFavourites()
+                }
+                
             } label: {
                 Text("Add to favourites")
             }
@@ -19,25 +21,24 @@ import SwiftUI
             viewModel.errorMessage ?? "",
             isPresented: $viewModel.showError) {
                 Button("OK") {
-                    
                 }
             }
     }
 }
-
 
 #Preview {
     NavigationStack {
         AssetDetailView(
             viewModel: .init(
                 asset: .init(
-                    id: "1",
+                    id: "bitcoin",
                     name: "Bitcoin",
                     symbol: "BTC",
-                    priceUsd: "5000.89",
-                    changePercent24Hr: "9.80"
+                    priceUsd: "123123.123123",
+                    changePercent24Hr: "9.99292"
                 )
             )
         )
     }
+    
 }

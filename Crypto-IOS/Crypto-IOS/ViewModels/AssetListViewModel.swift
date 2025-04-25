@@ -26,3 +26,22 @@ final class AssetListViewModel {
         }
     }
 }
+
+//
+//final class AAViewModel: ObservableObject {
+//
+//    @Published var assets: [Asset] = []
+//    @Published var errorMessage: String?
+//
+//    var apiClient: AssetsApiClient
+//
+//    init(assets: [Asset], errorMessage: String? = nil, apiClient: AssetsApiClient) {
+//        self.assets = assets
+//        self.errorMessage = errorMessage
+//        self.apiClient = apiClient
+//    }
+//
+//    func fetchAssets() async {
+//
+//    }
+//}

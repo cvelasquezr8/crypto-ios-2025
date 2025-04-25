@@ -11,10 +11,9 @@ struct SettingsView: View {
             loginForm()
                 .alert(
                     viewModel.errorMessage,
-                    isPresented: $viewModel.showError
-                ) {
-                    Button("OK"){ }
-                }
+                    isPresented: $viewModel.showError) {
+                        Button("OK") { }
+                    }
         }
     }
     
@@ -23,14 +22,11 @@ struct SettingsView: View {
         VStack {
             Text(user.id)
                 .font(.headline)
-            
             Text(user.email)
-                .font(.headline)
+                .font(.subheadline)
             
             Button {
-                Task {
-                    viewModel.logout()
-                }
+                viewModel.logout()
             } label: {
                 Text("Logout")
             }
@@ -46,7 +42,6 @@ struct SettingsView: View {
             SecureField("password", text: $viewModel.password)
                 .textFieldStyle(.roundedBorder)
             
-            
             Button {
                 Task {
                     await viewModel.login()
@@ -59,9 +54,7 @@ struct SettingsView: View {
             Spacer()
         }
         .padding()
-        
     }
-    
 }
 
 #Preview {
